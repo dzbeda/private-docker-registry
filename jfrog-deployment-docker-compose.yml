@@ -1,0 +1,42 @@
+version: '3' # Specifies the version of the Docker Compose file format.
+
+services:
+  artifactory: # Defines the JFrog Artifactory service.
+    image: releases-docker.jfrog.io/jfrog/artifactory-jcr:7.90.15 # Specifies the Artifactory Docker image and version.
+    container_name: artifactory # Sets a custom name for the Artifactory container.
+    environment: # Environment variables for Artifactory to connect to the database.
+      DB_TYPE: postgresql # Database type used by Artifactory.
+      DB_HOST: postgres # Hostname of the PostgreSQL service defined below.
+      DB_PORT: 5432 # Port on which PostgreSQL is running.
+      DB_USER: zbeda # Database username for connecting to PostgreSQL.
+      DB_PASSWORD: 1qaz@WSX # Password for the PostgreSQL user.
+      DB_NAME: artifactorydb # Name of the database for Artifactory.
+    ports:
+      - "8081:8081" # Exposes Artifactory's HTTP port on the host.
+      - "8082:8082" # Exposes Artifactory's Docker Registry port on the host.
+    depends_on: # Ensures Artifactory starts only after the PostgreSQL service is up.
+      - postgres
+    volumes:
+      - ./jfrog-data:/var/opt/jfrog/artifactory # Maps a host directory to persist Artifactory data.
+    restart: always # Ensures the container restarts automatically if it stops.
+    ulimits: # Sets container resource limits for better performance.
+      nproc: 65535 # Maximum number of processes allowed.
+      nofile:
+        soft: 32000 # Soft limit for maximum open files.
+        hard: 40000 # Hard limit for maximum open files.
+
+  postgres: # Defines the PostgreSQL database service.
+    image: releases-docker.jfrog.io/postgres:15.6-alpine # Specifies the PostgreSQL Docker image (Alpine for smaller size).
+    container_name: postgres # Sets a custom name for the PostgreSQL container.
+    environment: # Environment variables for PostgreSQL configuration.
+      POSTGRES_USER: zbeda # PostgreSQL user.
+      POSTGRES_PASSWORD: 1qaz@WSX # Password for the PostgreSQL user.
+      POSTGRES_DB: artifactorydb # Name of the database to be created.
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data # Maps a host directory to persist PostgreSQL data.
+    restart: always # Ensures the container restarts automatically if it stops.
+    ulimits: # Sets container resource limits for PostgreSQL.
+      nproc: 65535 # Maximum number of processes allowed.
+      nofile:
+        soft: 32000 # Soft limit for maximum open files.
+        hard: 40000 # Hard limit for maximum open files.

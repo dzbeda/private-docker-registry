@@ -1,0 +1,15 @@
+configVersion: 1
+shared:
+    security:
+    node:
+    database:
+    ## To run Artifactory with any database other than PostgreSQL allowNonPostgresql set to true.
+       allowNonPostgresql: false
+       type: postgresql
+       driver: org.postgresql.Driver
+       # The url include the container name (postgresql) and the DB name (artifactorydb)
+       url: "jdbc:postgresql://postgres:5432/artifactorydb"
+       username: zbeda
+       password: 1qaz@WSX
+
+access:
