@@ -8,8 +8,8 @@ Welcome to the **Install JFrog Private Docker Registry** repository! This reposi
 
 ## Repository Contents
 
-- **Docker Compose Files**: Pre-configured Docker Compose YAML files for deploying the JFrog Private Docker Registry and PostgreSQL database. These files are located in the `docker-compose` folder.
-- **Configuration Files**: Configurations for fine-tuning JFrog and database settings, such as `system.yaml`, located in the `configs` folder.
+- **Docker Compose Files**: Pre-configured Docker Compose YAML files for deploying the JFrog Private Docker Registry and PostgreSQL database. File name: jfrog-deployment-docker-compose.yml.
+- **Configuration Files**: Configurations for fine-tuning JFrog and database settings. File Name: `system.yaml`.
 
 ---
 
