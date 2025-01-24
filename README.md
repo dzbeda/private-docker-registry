@@ -1,4 +1,4 @@
-<img src="./flow.png" alt="flow Image" width="500" height="300">
+<img src="./private-docker-registry.jpg" alt="flow Image" width="500" height="300">
 
 # Install JFrog Private Docker Registry
 
@@ -16,7 +16,7 @@ Welcome to the **Install JFrog Private Docker Registry** repository! This reposi
 ## Reference Blog
 For a detailed explanation of how to set up a JFrog Private Docker Registry, refer to the following blog post:
 
-**Set Up Your Own Private Docker Registry Using JFrog**: [https://medium.com/@dudu.zbeda_13698/how-to-set-up-your-own-private-docker-registry-with-jfrog-xyz](https://medium.com/@dudu.zbeda_13698/how-to-set-up-your-own-private-docker-registry-with-jfrog-xyz)
+**Set Up Your Own Private Docker Registry Using JFrog**: [https://david-dudu-zbeda.medium.com/install-jfrog-private-docker-registry-a-step-by-step-guide-6bdcee5a248c](https://david-dudu-zbeda.medium.com/install-jfrog-private-docker-registry-a-step-by-step-guide-6bdcee5a248c)
 
 ---
 
